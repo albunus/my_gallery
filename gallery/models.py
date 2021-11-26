@@ -4,6 +4,12 @@ import datetime as dt
 
 # Create your models here.
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    
+    
+
 class photos(models.Model):
     pic_name = models.CharField(max_length=100)
     description = models.TextField()
@@ -11,3 +17,6 @@ class photos(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image')
+
+
+
