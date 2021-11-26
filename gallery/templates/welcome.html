@@ -1,1 +1,9 @@
-<h1>Hello there, welcome to my gallery</h1>
+{%extends 'all-gallery/base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<h1 class='welcome'>Hello there, welcome to my gallery</h1>
+
+{% endblock %}
+
