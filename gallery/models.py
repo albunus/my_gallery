@@ -7,8 +7,9 @@ import datetime as dt
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    
-    
+
+class Location(models.Model):
+    name = models.CharField(max_length=50, unique=True)
 
 class photos(models.Model):
     pic_name = models.CharField(max_length=100)
