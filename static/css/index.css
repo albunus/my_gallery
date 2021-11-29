@@ -35,8 +35,8 @@ a {
 
 .btn-warning {
   padding: 20px 0;
-  color: #6cb3e2;
-  background-color: #20a320;
+  color: #a12708;
+  background-color: #4374ac;
 }
 
 .btn-warning .item.social {
@@ -69,10 +69,11 @@ a {
 }
 
 .first{
-    background-image: url(https://thumbs.dreamstime.com/b/wedding-flower-frame-blue-background-above-beautiful-floral-pattern-flat-lay-style-79676427.jpg);
+    /* background-image: url(https://thumbs.dreamstime.com/b/wedding-flower-frame-blue-background-above-beautiful-floral-pattern-flat-lay-style-79676427.jpg);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: plum;
 }
 
 .second{
