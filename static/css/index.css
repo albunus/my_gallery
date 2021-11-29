@@ -16,7 +16,7 @@ a {
 
 
 .modal img {
-  border: 1px solid rgb(214, 214, 214);
+  border: 1px solid rgb(109, 6, 134);
   border-radius: 5px;
 }
 
@@ -35,7 +35,7 @@ a {
 
 .btn-warning {
   padding: 20px 0;
-  color: #f0f9ff;
+  color: #6cb3e2;
   background-color: #20a320;
 }
 
@@ -69,5 +69,13 @@ a {
 }
 
 .first{
-    background-color: rgb(255, 0, 106);
+    background-image: url(https://thumbs.dreamstime.com/b/wedding-flower-frame-blue-background-above-beautiful-floral-pattern-flat-lay-style-79676427.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.second{
+    text-align: center;
+    color: red;
 }

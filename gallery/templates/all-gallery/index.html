@@ -29,15 +29,15 @@
                     </small>
                   </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-warning px-3 py-2 mt-4">
+                <div class="d-flex align-items-center justify-content-between  bg-dark px-3 py-2 mt-4">
                   <a data-toggle="modal" data-target="#modalDisplayImageDetails{{photo.id}}"
-                    class="text-dark modal-click">
+                    class="text-light modal-click">
                     <p class="small mb-0">
                       View More
                       <i class="fa fa-arrow-right"></i>
                     </p>
                   </a>
-                  <div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark">
+                  <div class="badge badge-danger px-3  font-weight-normal text-light">
                     {{photo.created_at|date}}
                   </div>
                 </div>
@@ -53,23 +53,23 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="modalDisplayImageDetailsLabel">{{ photo.name}} <small
-                      class="badge rounded-pill bg-warning text-dark">{{ photo.location}}</small></h5>
+                      class="badge text-center text-dark">{{ photo.location}}</small></h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <img src="{{ photo.image.url }}" alt="" class="img-fluid">
                   <div class="content m-3">
-                    <h6 class="headings text-capitalize badge rounded-pill bg-warning text-dark">
+                    <h6 class="headings text-capitalize badge  text-center text-dark">
                       <small>{{ photo.category }}</small>
                     </h6>
-                    <h4 class="headings text-underline">Description</h4>
+                    <h4 class="headings text-danger">Image Details</h4>
                     <p class="m-3 headings">
                       {{photo.description }}
                     </p>
                   </div>
                   <div class="share-button">
                     <input type="hidden" value="{{ photo.image.url }}" id="inputShareLink" class="form-control">
-                    <button onclick="shareLink()" class="btn btn-sm btn-primary rounded-pill" data-bs-toggle="tooltip"
+                    <button onclick="shareLink()" class="btn btn-sm btn-danger rounded-pill" data-bs-toggle="tooltip"
                       data-bs-placement="top" title="Click to copy the link">
                       <i class="fa fa-share"></i>
                     </button>

@@ -46,7 +46,19 @@
 
 
     </ul>
+            <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search Photos by category" name="images">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search text-white"
+                                aria-hidden="true"></i>
+                        </button>
+
+                    </div>
+                </div>
+
+            </form>
   </div>
   
 </nav>
@@ -88,5 +100,6 @@
   </a>
 </div>
 <br>
+  <h1 class="second"> WELCOME TO MY GALLERY
 <hr>
 </div>
