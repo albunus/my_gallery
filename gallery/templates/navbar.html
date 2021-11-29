@@ -12,31 +12,41 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
             <li class="nav-item active">
-        <a class="nav-link" href="/admin">Admin <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/admin">Admin Dashboard <span class="sr-only">(current)</span></a>
       </li>
+
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          About Us
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/">Us</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style=" color: white;">
+                    Location
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for location in locations %}
+                    <a class="dropdown-item" href="/?location={{location.id}}">{{location.name}}</a>
+
+                    {%endfor%}
+
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style=" color: white;">
+                    category
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for category in categories %}
+                    <a class="dropdown-item" href="/?category={{category.id}}">{{category.name}}</a>
+
+                    {%endfor%}
+
+                </div>
+            </li>
+
+
 
     </ul>
-        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Photos" name="Photos">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
-            </div>
-          </div>
-
-        </form>
   </div>
   
 </nav>
