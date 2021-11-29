@@ -48,3 +48,9 @@ Or you can access the web application directly via this [LIVE LINK]
 * js
 * css
 *****
+### License
+*MIT*
+Copyright (c) 2021 **Peter Anami**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files.
+*****
