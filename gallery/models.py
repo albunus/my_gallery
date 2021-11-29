@@ -38,7 +38,7 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
-class photos(models.Model):
+class Images(models.Model):
     pic_name = models.CharField(max_length=100)
     description = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -47,50 +47,42 @@ class photos(models.Model):
     image = CloudinaryField('image')
     phone_number = models.CharField(max_length = 10,blank =True)
 
-    def save_photos(self):
+    def save_image(self):
         self.save()
 
-    def update_photos(self, pic_name, description, location, category):
-        self.pic_name = pic_name
+
+    # update image
+    def update_image(self, name, description):
+        self.name = name
         self.description = description
-        self.location = location
-        self.category = category
+        # self.location = location
+        self.category = Category
         self.save()
 
+    # get all images
+    @classmethod
+    def get_all_images(cls):
+        images = Images.objects.all()
+        return images
 
+    @classmethod
+    def search_by_category(cls,search_term):
+        pics = cls.objects.filter(category__name__icontains=search_term)
+        return pics
 
-    #search photos
     @classmethod
-    def search_photos(cls,search_term):
-        photos_by_category = cls.filter_by_category(search_term)
-        photos_by_location = cls.filter_by_location(search_term)
-        return photos_by_category.union(photos_by_location)
-    
-    @classmethod
-    def get_all_photos(cls):
-        Photos =photos.objects.all()
-        return Photos
-    
-    @classmethod
-    def get_photos_by_id(cls, id):
-        Photos =photos.objects.get(id=id)
-        return Photos
-    
-    @classmethod
-    def filter_by_location(cls, location):
-        Photos =photos.objects.filter(location_name = location)
-        return Photos
-    
-    @classmethod
-    def filter_by_category(cls, category):
-        Photos =photos.objects.filter(category_name = category)
-        return Photos
-    
-    def delete_photos(self):
+    def filter_by_location(cls,search_location):
+        location = cls.objects.filter(location__name__=search_location).all()
+        return location
+
+    def delete_image(self):
         self.delete()
 
+    @classmethod
+    def search(cls, search_term):
+        images_by_category = cls.search_by_category(search_term)
+        images_by_location = cls.filter_by_location(search_term)
+        return images_by_category.union(images_by_location)
+
     def __str__(self):
-        return self.pic_name
-
-
-
+        return self.name
