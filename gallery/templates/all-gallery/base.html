@@ -14,18 +14,24 @@
 
     {% block styles %}
         {% bootstrap_css %}
-        <link rel="stylesheet" href="{% static 'css/basegallery.css'%}">
+        <link rel="stylesheet" href="{% static 'css/index.css'%}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     {% endblock %}
 
 </head>
 <body>
     {% include "navbar.html" %}
+    
 
-    {% block content %} <h1 class='text-center'>Hollow Picture.</h1> {%endblock%}
+    {% block content %} <h1 class='text-center'>Hello, Welcome to my gallery.</h1> {%endblock%}
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
     {% endblock %}
+    <div>
+    {% include 'footer.html' %}
+    </div>
 </body>
 </html>

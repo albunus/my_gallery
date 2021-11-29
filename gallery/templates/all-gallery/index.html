@@ -1,5 +1,103 @@
-{%extends 'all-gallery/base.html'%}
-
+{% extends "all-gallery/base.html" %}
 {% block content %}
-{{block.super}}
-{% endblock %}
+<div class="photo-gallery">
+  <div class="container-fluid">
+    <div class="px-lg-5">
+      <!-- display default password and username -->
+      <div class="row">
+        
+        
+          {% for Photo in Photos %}
+          <!-- Gallery Photo item start -->
+          <div class="col-xl-3 col-lg-4 col-md-12 mb-4">
+            <div class="bg-white rounded shadow-sm"><img src="{{ Photo.image.url }}" alt=""
+                class="img-fluid card-img-top">
+              <div class="p-4">
+                <h5 class="headings text-center"> <a data-bs-toggle="modal"
+                    data-bs-target="#modalDisplayImageDetails{{ Photo.id}}"
+                    class="text-dark text-capitalize modal-click">{{ Photo.pic_name }}</a></h5>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <small class="text-muted">
+                      <span class="badge rounded-pill bg-info text-white text-capitalize">{{ Photo.category }}</span>
+                    </small>
+                  </div>
+                  <div>
+                    <small class="text-muted">
+                      <span class="badge rounded-pill bg-dark text-white text-capitalize">{{ Photo.location }}</span>
+                    </small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between rounded-pill bg-warning px-3 py-2 mt-4">
+                  <a data-toggle="modal" data-target="#modalDisplayImageDetails{{Photo.id}}"
+                    class="text-dark modal-click">
+                    <p class="small mb-0">
+                      View More
+                      <i class="fa fa-arrow-right"></i>
+                    </p>
+                  </a>
+                  <div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark">
+                    {{Photo.created_at|date}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal to display the image details -->
+          <div class="modal fade" role="dialog" id="modalDisplayImageDetails{{Photo.id}}" tabindex="-1"
+            aria-labelledby="modalDisplayImageDetailsLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalDisplayImageDetailsLabel">{{ Photo.name}} <small
+                      class="badge rounded-pill bg-warning text-dark">{{ Photo.location}}</small></h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <img src="{{ Photo.image.url }}" alt="" class="img-fluid" id="imagesurl">
+                  <div class="content m-3">
+                    <h6 class="headings text-capitalize badge rounded-pill bg-warning text-dark">
+                      <small>{{ Photo.category }}</small>
+                    </h6>
+                    <h4 class="headings text-underline">Description</h4>
+                    <p class="m-3 headings">
+                      {{Photo.description }}
+                    </p>
+                  </div>
+                  <div class="share-button">
+                    <input type="hidden" value="{{ Photo.image.url }}" id="inputShareLink" class="form-control">
+                    <button onclick="photoLink()" class="btn btn-sm btn-primary rounded-pill" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Click to copy the link">
+                      <i class="fa fa-share"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal end -->
+          <!-- End -->
+          {% empty %}
+          <!-- no photos -->
+          <div class="col-md-12">
+            <h1>
+              No photos
+            </h1>
+          </div>
+          {% endfor %}
+
+        
+
+      </div>
+    </div>
+  </div>
+  <script>
+    function photoLink() {
+      var copyText = document.getElementById('#inputShareLink')
+      copyText.select();
+      document.execCommand('copy')
+      alert("URL Copied.");
+    }
+  </script>
+  {% endblock %}
