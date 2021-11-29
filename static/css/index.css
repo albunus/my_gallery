@@ -68,4 +68,6 @@ a {
   margin-bottom: 0;
 }
 
-.images{}
+.images{
+    background-color: aqua;
+}
