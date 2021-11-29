@@ -40,3 +40,11 @@ Or you can access the web application directly via this [LIVE LINK]
 * typing-extensions==3.10.0.2
 * xlwt==1.3.0
 * zipp==3.6.0
+*****
+## Technologies Used
+* Python3.7
+* Django
+* HTML
+* js
+* css
+*****
