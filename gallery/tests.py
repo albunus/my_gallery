@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Location, Category, photos
+from .models import Location, Category, Images
 
 # Create your tests here.
 
@@ -58,7 +58,7 @@ class ImageTestCase(TestCase):
         """
         Create a image for testing
         """
-        photos.objects.create(
+        Images.objects.create(
             pic_name="Test Image",
             description="Test Description",
             location=Location.objects.create(name="Test Location"),
@@ -71,35 +71,35 @@ class ImageTestCase(TestCase):
         """
         Test that the image name is correct
         """
-        Photos = photos.objects.get(name="Test Image")
+        Photos = Images.objects.get(name="Test Image")
         self.assertEqual(Photos.pic_name, "Test Image")
 
     def test_image_description(self):
         """
         Test that the image description is correct
         """
-        Photos = photos.objects.get(name="Test Image")
-        self.assertEqual(photos.description, "Test Description")
+        Photos = Images.objects.get(name="Test Image")
+        self.assertEqual(Images.description, "Test Description")
 
     def test_image_location(self):
         """
         Test that the image location is correct
         """
-        Photos = photos.objects.get(name="Test Image")
-        self.assertEqual(photos.location.name, "Test Location")
+        Photos = Images.objects.get(name="Test Image")
+        self.assertEqual(Images.location.name, "Test Location")
 
     def test_image_category(self):
         """
         Test that the image category is correct
         """
-        Photos = photos.objects.get(name="Test Image")
-        self.assertEqual(photos.category.name, "Test Category")
+        Photos = Images.objects.get(name="Test Image")
+        self.assertEqual(Images.category.name, "Test Category")
 
     def test_photos_photos(self):
         """
         Test that the image image is correct
         """
-        Photos = photos.objects.get(name="Test Image")
+        Photos = Images.objects.get(name="Test Image")
         self.assertEqual(Photos.Photos, "https://avatars.mds.yandex.net/i?id=6ad815dc6169bc81d72aa57b7ca5a596-4893557-images-thumbs&n=13")
 
 
@@ -107,5 +107,5 @@ class ImageTestCase(TestCase):
         """
         Test that the image string representation is correct
         """
-        Photos = photos.objects.get(name="Test Image")
+        Photos = Images.objects.get(name="Test Image")
         self.assertEqual(Photos.Photos, "https://avatars.mds.yandex.net/i?id=6ad815dc6169bc81d72aa57b7ca5a596-4893557-images-thumbs&n=13")
